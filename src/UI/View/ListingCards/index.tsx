@@ -2,22 +2,23 @@ import { Gutter } from "@/UI/Components/Gutter";
 import React from "react";
 import style from "./index.module.scss";
 import Link from "next/link";
+import { Icons } from "@/UI/Components/Icons";
 
 const Card = [
   {
-    title: "Card 1",
-    icon: "icon1",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Swift Home Sales",
+    icon: Icons.Sofa,
+    content: "256 Listings",
   },
   {
-    title: "Card 2",
-    icon: "icon2",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Prime Investment",
+    icon: Icons.House,
+    content: "256 Listings",
   },
   {
-    title: "Card 3",
-    icon: "icon3",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Prestige Management",
+    icon: Icons.Manage,
+    content: "256 Listings",
   },
 ];
 
@@ -28,7 +29,9 @@ export const Cards = () => {
         <div className={style.content}>
           {Card.map((card, index) => (
             <div key={index} className={style.item}>
-                <div className={style.icon}>{card.icon}</div>
+                <div className={style.icon}>
+                  <card.icon />
+                </div>
                 <h2>{card.title}</h2>
                 <p>{card.content}</p>
                 <Link className={style.link} href={""}>

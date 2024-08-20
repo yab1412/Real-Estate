@@ -2,6 +2,7 @@ import { Gutter } from '@/UI/Components/Gutter'
 import React from 'react'
 import Image from 'next/image'
 import style from "./index.module.scss"
+import { Icons } from '@/UI/Components/Icons'
 
 
 export const Hero = () => {
@@ -21,7 +22,7 @@ export const Hero = () => {
               </p>
               <div className={style.help}>
                 <p>Need help?</p>
-                <p> (251)123-4567</p>
+                <p className={style.call}><Icons.Call /> (251)123-4567</p>
               </div>
             </div>
           </div>
