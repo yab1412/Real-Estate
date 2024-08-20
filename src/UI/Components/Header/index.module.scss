@@ -9,9 +9,9 @@
   // border: 1px solid red;
   z-index: 400;
 
-  @include respond(tab-port) {
-    height: 6.4rem;
-  }
+  // @include respond(tab-port) {
+  //   height: 6.4rem;
+  // }
 
   @include respond(phone) {
     height: 6.4rem;
