@@ -64,6 +64,8 @@
 
     .container {
       display: flex;
+      gap: 2rem;
+
       flex-wrap: wrap;
 
       @include respond(phone) {
@@ -77,10 +79,6 @@
         // height: 25vh;
         flex-grow: 1;
         cursor: pointer;
-
-        @include respond(phone) {
-          // height: 13vh;
-        }
 
         .image {
           // max-height: 100%;
@@ -107,8 +105,13 @@
         background-color: rgba(66, 61, 61, 0.3);
         // z-index: 2;
 
-        @include respond (phone) {
+        @include respond(phone) {
           display: none;
+        }
+
+        @include respond(tab-port) {
+          display: none;
+          // width: 1px;
         }
       }
 
@@ -217,12 +220,12 @@
 
 .nextCard {
   opacity: 0;
-  left: 100%;
+  // left: 100%;
 }
 
 .otherCard {
   opacity: 0;
-  left: -100%;
+  // left: -100%;
 }
 
 .slider {
@@ -247,7 +250,7 @@
   align-content: flex-end;
 
   @include respond(phone) {
-    position:relative ;
+    position: relative;
   }
 
   & button {
@@ -292,7 +295,7 @@
   justify-content: space-evenly;
   margin-top: 10rem;
 
-  @include respond (phone) {
+  @include respond(phone) {
     display: grid;
     grid-template-columns: auto auto;
   }

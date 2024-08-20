@@ -1,5 +1,6 @@
 html {
   scroll-timeline: --page-scroll block;
+  // overflow-x: hidden;
 }
 
 @keyframes grow-progress {
@@ -21,7 +22,7 @@ opacity: 0;
 
 .progress {
   position: fixed;
-  right: 36px;
+  right: 30%;
   bottom: 90px;
   height: 46px;
   line-height: 46px;

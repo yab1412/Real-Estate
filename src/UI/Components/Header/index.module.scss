@@ -9,7 +9,7 @@
   // border: 1px solid red;
   z-index: 400;
 
-  @include respond(tab-land) {
+  @include respond(tab-port) {
     height: 6.4rem;
   }
 

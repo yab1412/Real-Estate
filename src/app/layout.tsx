@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Link className="progress" href= "/"/>
+        {/* <Link className="progress" href= "/"/> */}
        
 
         <header>
