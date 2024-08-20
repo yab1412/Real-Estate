@@ -1,8 +1,36 @@
 import React from "react";
 import { Gutter } from "@/UI/Components/Gutter";
-import style from "./index.module.scss";
+import styles from "./index.module.scss";
 
-const Table = [
+interface TableHead {
+  floorNo: string;
+  bathroom: string;
+  rooms: string;
+  totalArea: string;
+  price: string;
+  link: string;
+}
+
+interface TableRow {
+  floorNo: string;
+  bathroom: string;
+  rooms: string;
+  totalArea: string;
+  price: string;
+  link: {
+    href: string;
+    text: string;
+  };
+}
+
+interface TableData {
+  tableHead: TableHead;
+  table: {
+    [key: string]: TableRow;
+  };
+}
+
+const tableData: TableData[] = [
   {
     tableHead: {
       floorNo: "Floor",
@@ -61,17 +89,17 @@ const Table = [
   },
 ];
 
-export const Available_Apartments = () => {
+export const AvailableApartments = () => {
   return (
-    <Gutter className={style.main}>
-      <div className={style.container}>
-        <div className={style.content}>
-          <div className={style.head}>
-            <div className={style.title}>
+    <Gutter className={styles.main}>
+      <div className={styles.container}>
+        <div className={styles.content}>
+          <div className={styles.head}>
+            <div className={styles.title}>
               <h2>Available Apartments</h2>
               <h1>Unlocking the Door to your new Home</h1>
             </div>
-            <div className={style.discription}>
+            <div className={styles.discription}>
               <h3>
                 Real estate is a lucrative industry that involves the buying
                 selling and renting of properties. It encompasses residential
@@ -80,42 +108,35 @@ export const Available_Apartments = () => {
             </div>
           </div>
 
-          <div className={style.tables}>
-            <table className={style.table}>
-              {Table.map((index, rowIndex) => {
-                return (
-                  <thead key={rowIndex}>
-                    <tr>
-                      {Object.keys(index.tableHead).map((key, colIndex) => {
-                        return <th key={colIndex}>{index.tableHead[key]}</th>;
-                      })}
-                    </tr>
-                  </thead>
-                );
-              })}
-              
-              {Table.map((index, rowIndex) => {
-                return (
-                  <tbody key={rowIndex}>
-                    {Object.keys(index.table).map((key, colIndex) => {
-                      const data = index.table[key];
-                      return (
-                        <tr key={colIndex}>
-                          <td>{data.floorNo}</td>
-                          <td>{data.bathroom}</td>
-                          <td>{data.rooms}</td>
-                          <td>{data.totalArea}</td>
-                          <td>{data.price}</td>
-                          <td className={style.link}>
-                            <a href={data.link.href}>{data.link.text}</a>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                );
-              })}
+          <div className={styles.tables}>
+            <table className={styles.table}>
+              <thead>
+                <tr>
+                  {Object.keys(tableData[0].tableHead).map((key, index) => (
+                    <th key={index}>
+                      {tableData[0].tableHead[key as keyof TableHead]}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
 
+              <tbody>
+                {Object.keys(tableData[0].table).map((key, index) => {
+                  const data = tableData[0].table[key];
+                  return (
+                    <tr key={index}>
+                      <td>{data.floorNo}</td>
+                      <td>{data.bathroom}</td>
+                      <td>{data.rooms}</td>
+                      <td>{data.totalArea}</td>
+                      <td>{data.price}</td>
+                      <td className={styles.link}>
+                        <a href={data.link.href}>{data.link.text}</a>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
             </table>
           </div>
         </div>

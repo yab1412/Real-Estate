@@ -4,7 +4,7 @@ import { Cards } from "../../View/ListingCards";
 import { About } from "../../View/About Us";
 import { FloorPlan } from "../../View/Floor Plan";
 import { Gallery } from "@/UI/View/Gallery";
-import { Available_Apartments} from "@/UI/View/Available Apartments"
+import { AvailableApartments} from "@/UI/View/Available Apartments"
 import { Contact_Us } from "@/UI/View/Contact Us";
 import { Blog } from "@/UI/View/Blog";
 
@@ -16,7 +16,7 @@ export const HomePage = () => {
       <About />
       <FloorPlan />
       <Gallery />
-      <Available_Apartments />
+      <AvailableApartments />
       <Contact_Us />
       <Blog />
     </div>
