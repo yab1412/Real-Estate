@@ -1,0 +1,99 @@
+@import "../../../Styles/minxins/respond.scss";
+
+.main {
+  width: 100%;
+  height: 100%;
+  margin-top: 10rem;
+  background-color: #211e1e;
+
+  @include respond (phone) {
+      // width: 43rem;
+  }
+}
+
+.container {
+  // width: 100%;
+  // height: 100%;
+}
+
+.content {
+  padding: 10rem 0;
+}
+
+.head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+
+  @include respond(phone) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.title {
+  & h2 {
+    font-family: sans-serif;
+    font-size: 1.8rem;
+    color: hwb(36 0% 0% / 0.7);
+    text-transform: capitalize;
+  }
+
+  & h1 {
+    font-size: 3.5rem;
+  }
+}
+
+.discription {
+  & h3 {
+    font-size: 1.8rem;
+    font-family: sans-serif;
+    font-weight: 200;
+  }
+}
+
+.tables {
+  margin-top: 10rem;
+
+  @include respond(phone) {
+    overflow-x: scroll;
+  }
+
+    @include respond(tab-port) {
+    overflow-x: scroll;
+  }
+}
+
+.table {
+  width: 100%;
+  font-size: 2rem;
+  border-collapse: separate;
+  border-spacing: 0 5rem;
+  text-align: center;
+  border-radius: 10px;
+  padding: 1rem;
+  border: 1px solid rgb(255, 255, 255, 0.3);
+
+  & th {
+    border-bottom: 1px solid rgb(255, 255, 255, 0.3);
+  }
+
+  & td {
+    border-bottom: 1px solid rgb(255, 255, 255, 0.3);
+  }
+
+  @include respond(phone) {
+    width: 100rem;
+  }
+
+   @include respond(tab-port) {
+    width: 100rem;
+  }
+}
+
+.link {
+  & a {
+    margin-right: 2rem;
+    text-decoration: none;
+    color: hwb(36 0% 0% / 0.7);
+  }
+}

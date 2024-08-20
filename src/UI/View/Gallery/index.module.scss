@@ -1,0 +1,299 @@
+@import " ../../../../../Styles/minxins/respond.scss";
+
+.gallery {
+  height: 100%;
+  width: 100%;
+  @include respond(tab-land) {
+    max-width: 136.6rem;
+    margin: 0 auto;
+  }
+
+  .leading {
+    .label {
+      display: grid;
+      grid-template-rows: auto auto;
+      row-gap: 3.2rem;
+      justify-items: center;
+
+      .title {
+        position: relative;
+        font-weight: 600;
+        text-align: center;
+
+        &::after {
+          content: "";
+
+          position: absolute;
+          left: 50%;
+          bottom: -1.6rem;
+          transform: translateX(-50%);
+
+          height: 0.4rem;
+          width: 16%;
+
+          border-radius: 0.4rem;
+        }
+      }
+    }
+  }
+
+  .main {
+    display: block;
+    position: relative;
+
+    .title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10rem 0;
+
+      & h2 {
+        width: fit-content;
+        padding: 1rem;
+        margin-bottom: 2rem;
+        font-family: sans-serif;
+        font-size: 1.8rem;
+        background-color: #211e1e;
+        color: hwb(36 0% 0% / 0.7);
+      }
+
+      & h1 {
+        font-size: 3rem;
+      }
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+
+      @include respond(phone) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+      }
+
+      .item {
+        position: relative;
+        // height: 25vh;
+        flex-grow: 1;
+        cursor: pointer;
+
+        @include respond(phone) {
+          // height: 13vh;
+        }
+
+        .image {
+          // max-height: 100%;
+          width: 100%;
+          // height: 20%;
+          object-fit: contain;
+          vertical-align: bottom;
+        }
+      }
+
+      .iconHover {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        position: absolute;
+        width: 300px;
+        height: 250px;
+        border-radius: 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(66, 61, 61, 0.3);
+        // z-index: 2;
+
+        @include respond (phone) {
+          display: none;
+        }
+      }
+
+      & .iconHover:hover {
+        opacity: 1;
+      }
+
+      .content {
+        position: absolute;
+        padding: 3%;
+        width: 100%;
+        height: 70%;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0%;
+
+        @include respond(phone) {
+          top: 50%;
+        }
+
+        svg {
+          position: absolute;
+          border-radius: 15%;
+          top: 10px;
+          right: 10px;
+        }
+        svg:hover {
+          transform: scale(1.1);
+        }
+
+        .modal {
+          display: flex;
+          align-items: center;
+          gap: 5%;
+
+          @include respond(phone) {
+            flex-direction: column;
+          }
+
+          .frame {
+            width: 100%;
+            height: 100%;
+            flex: 1;
+          }
+        }
+      }
+      .hide {
+        display: none;
+      }
+      .hide_image {
+        animation: hideImage 0.5s ease-in-out forwards;
+      }
+      @keyframes hideImage {
+        to {
+          opacity: 30%;
+        }
+      }
+    }
+  }
+}
+
+.card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: all 1s ease;
+  top: 0;
+  left: 35%;
+  // opacity:0;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(39, 36, 36, 0.1);
+  padding: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(1fr, 1fr));
+  grid-gap: 20px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.images {
+  // border: 1px solid red;
+  width: 100%;
+  border-radius: 15px;
+  aspect-ratio: 9 / 10;
+  object-fit: contain;
+
+  @include respond(phone) {
+    width: 100%;
+  }
+}
+
+.prevCard {
+  opacity: 0;
+  left: -100%;
+}
+
+.active {
+  opacity: 1;
+  left: 0;
+}
+
+.nextCard {
+  opacity: 0;
+  left: 100%;
+}
+
+.otherCard {
+  opacity: 0;
+  left: -100%;
+}
+
+.slider {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  // overflow: hidden;
+  position: relative;
+}
+
+.buttons {
+  content: "*";
+  height: 4rem;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: -45%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 1.6rem;
+  justify-content: center;
+  align-content: flex-end;
+
+  @include respond(phone) {
+    position:relative ;
+  }
+
+  & button {
+    width: 5rem;
+    height: 15rem;
+    border: none;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+  }
+}
+
+.buttonss {
+  height: 4rem;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 48%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 1.6rem;
+  justify-content: center;
+  align-content: flex-end;
+  cursor: pointer;
+
+  @include respond(phone) {
+    position: relative;
+  }
+
+  & button {
+    width: 5rem;
+    height: 15rem;
+    border: none;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+  }
+}
+
+.counters {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10rem;
+
+  @include respond (phone) {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+}
