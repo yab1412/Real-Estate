@@ -24,7 +24,7 @@
   top: 20%;
   left: 0;
   padding: 0 10%;
-  color: black;
+  color: #211e1e;
   display: grid;
   gap: 40rem;
   grid-template-columns: 1fr 1fr;
@@ -43,6 +43,11 @@
     color: #fff;
     grid-template-columns: 1fr;
     gap: 0rem;
+  }
+
+  @include respond(bigScreen) {
+    top: 10%;
+    padding: 0 35%;
   }
 }
 
