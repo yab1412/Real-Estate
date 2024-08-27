@@ -1,7 +1,7 @@
 "use client";
 
 import { Gutter } from "@/UI/Components/Gutter";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import style from "./index.module.scss";
 import Image from "next/image";
 import ButtonGroup from "./buttonGroup";
@@ -9,41 +9,94 @@ import ButtonGroup from "./buttonGroup";
 const buttons = ["1", "2", "3", "4", "5"];
 
 const Check = ({ index }: { index: any }) => {
+
+  const view = useRef <HTMLDivElement | null>(null)
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect (() =>{
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0]
+      if (entry.isIntersecting) {
+        setIsVisible(true)
+      }
+    })
+
+    const currentView = view.current
+    if (currentView) {
+      observer.observe(currentView)
+    }
+  })
+
   switch (index) {
     case 0:
       return (
         <>
           <div>
             <div className={style.active}>
-              <h2>Rooms</h2>
+              <div
+                ref={view}
+                className={[style.head, isVisible ? style.HeadView1 : null].join(
+                  " "
+                )}
+              >
+                <h2>Rooms</h2>
+              </div>
               <p>06</p>
             </div>
             <div className={style.line}></div>
           </div>
           <div>
             <div className={style.active}>
-              <h2>Bathroom</h2>
+              <div
+                ref={view}
+                className={[style.head, isVisible ? style.HeadView2 : null].join(
+                  " "
+                )}
+              >
+                <h2>Bathrooms</h2>
+              </div>{" "}
               <p>06</p>
             </div>
             <div className={style.line}></div>
           </div>
           <div>
             <div className={style.active}>
-              <h2>Total Area SQ.M</h2>
+              <div
+                ref={view}
+                className={[style.head, isVisible ? style.HeadView3 : null].join(
+                  " "
+                )}
+              >
+                <h2>Total Area SQ.M</h2>
+              </div>
               <p>15,000</p>
             </div>
             <div className={style.line}></div>
           </div>
           <div>
             <div className={style.active}>
-              <h2>Parking</h2>
+              <div
+                ref={view}
+                className={[style.head, isVisible ? style.HeadView4 : null].join(
+                  " "
+                )}
+              >
+                <h2>Parking</h2>
+              </div>
               <p>07</p>
             </div>
             <div className={style.line}></div>
           </div>
           <div>
             <div className={style.active}>
-              <h2>Total Price</h2>
+              <div
+                ref={view}
+                className={[style.head, isVisible ? style.HeadView5 : null].join(
+                  " "
+                )}
+              >
+                <h2>Total Price</h2>
+              </div>
               <p>$2504.8</p>
             </div>
           </div>

@@ -348,6 +348,30 @@ const Manage: FunctionComponent<Props> = ({
   );
 };
 
+
+const Arrow: FunctionComponent<Props> = ({
+  size = 50,
+  color = " hwb(36 0% 0% / 0.7)",
+}) => {
+  return (
+    <svg
+      width={size + "px"}
+      height={size + "px"}
+      fill={color}
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6 12H18M18 12L13 7M18 12L13 17"
+        stroke={color}
+        stroke-width="1"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+
 export const Icons = {
   FaceBook,
   Instagram,
@@ -358,4 +382,5 @@ export const Icons = {
   Sofa,
   Manage,
   House,
+  Arrow,
 };

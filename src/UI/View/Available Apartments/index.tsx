@@ -1,6 +1,7 @@
 import React from "react";
 import { Gutter } from "@/UI/Components/Gutter";
 import styles from "./index.module.scss";
+import { Icons } from "@/UI/Components/Icons";
 
 interface TableHead {
   floorNo: string;
@@ -131,7 +132,7 @@ export const AvailableApartments = () => {
                       <td>{data.totalArea}</td>
                       <td>{data.price}</td>
                       <td className={styles.link}>
-                        <a href={data.link.href}>{data.link.text}</a>
+                        <a href={data.link.href}>{data.link.text}<Icons.Arrow size={30}/></a>
                       </td>
                     </tr>
                   );

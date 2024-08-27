@@ -42,7 +42,62 @@
 }
 
 .link {
+    display: flex;
+    align-items: center;
     font-size: 1.8rem;
     text-decoration: none;
     color:  hwb(36 0% 0% / 0.7);
+}
+
+.icon {
+    opacity: 0;
+}
+
+.contentView {
+  animation: ups 1s 1s linear forwards;
+
+  @include respond(phone) {
+    animation: none;
+  }
+}
+@keyframes ups {
+  0% {
+    opacity: 0;
+    transform: translateY(500px);
+  }
+  20% {
+    opacity: 0.5;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+  }
+ 
+}
+
+.discription{
+opacity: 0;
+}
+
+
+.discriptionView {
+  animation: downs 1s 1s linear forwards;
+
+  @include respond(phone) {
+    animation: none;
+  }
+}
+@keyframes downs {
+  0% {
+    opacity: 0;
+    transform: translateX(-500px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 1;
+  }
+ 
 }

@@ -300,3 +300,25 @@
     grid-template-columns: auto auto;
   }
 }
+
+.count {
+  opacity: 0;
+}
+
+.counterView {
+  animation: ups 1s 1s linear forwards;
+
+  @include respond(phone) {
+    animation: none;
+  }
+}
+
+@keyframes ups {
+  0% {
+    transform: translateY(100px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

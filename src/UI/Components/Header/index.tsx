@@ -4,6 +4,7 @@ import React, {useEffect, useState} from "react";
 import Image from "next/image";
 import styles from "./index.module.scss";
 import Link from "next/link";
+import { Icons } from "../Icons";
 
 interface Menu {
   title: string;
@@ -40,9 +41,6 @@ const Header = ({ menu, logo }: HeaderProps) => {
 
   return (
     <>
-      <div>
-        <h2>We build It before You Know It</h2>
-      </div>
       <div className={`${styles.container} ${isSticky ? styles.sticky : ""} `}>
         <div className={styles.main}>
           <div className={styles.logo}>
@@ -83,7 +81,7 @@ const Header = ({ menu, logo }: HeaderProps) => {
                 })}
               </ul>
               <div className={styles.contact}>
-                <button className={styles.button}>ADD LISTING</button>
+                <button className={styles.button}>ADD LISTING <Icons.Arrow size={30} color="#fff" /></button>
               </div>
             </div>
           </div>

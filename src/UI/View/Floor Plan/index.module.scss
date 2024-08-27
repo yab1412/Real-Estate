@@ -1,13 +1,13 @@
 @import "../../../Styles/minxins/respond.scss";
 
-
 .main {
-  margin: 10rem 1;
+  // margin: 10rem ;
 }
 
 .container {
   width: 100%;
   height: 100%;
+  margin: 10rem 0;
 }
 
 .title {
@@ -36,13 +36,13 @@
   grid-template-columns: 1fr 1fr;
   gap: 5rem;
 
-  @include respond (phone) {
+  @include respond(phone) {
     display: flex;
     flex-direction: column;
     gap: 2rem;
   }
 
-   @include respond (tab-port) {
+  @include respond(tab-port) {
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -77,16 +77,15 @@
   height: 1px;
   background-color: rgb(255, 255, 255, 0.3);
 
-  @include respond (phone) {
+  @include respond(phone) {
     width: 35rem;
   }
 
-   @include respond (tab-port) {
+  @include respond(tab-port) {
     width: 65rem;
   }
 
-  
-   @include respond (bigScreen) {
+  @include respond(bigScreen) {
     width: 70rem;
   }
 }
@@ -95,4 +94,62 @@
   margin-top: 5rem;
   color: rgb(255, 255, 255, 0.3);
   font-size: 1.8rem;
+}
+
+.head {
+  opacity: 0;
+}
+
+.HeadView1 {
+  animation: rights 1s 1s linear forwards;
+
+  @include respond(phone) {
+    animation: none;
+  }
+}
+
+@keyframes rights {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.HeadView2 {
+  animation: rights 1.5s 1s linear forwards;
+
+  @include respond(phone) {
+    animation: none;
+  }
+}
+
+.HeadView3 {
+  animation: rights 2s 1s linear forwards;
+
+  @include respond(phone) {
+    animation: none;
+  }
+}
+
+.HeadView4 {
+  animation: rights 2.5s 1s linear forwards;
+
+  @include respond(phone) {
+    animation: none;
+  }
+}
+
+.HeadView5 {
+  animation: rights 3s 1s linear forwards;
+
+  @include respond(phone) {
+    animation: none;
+  }
 }

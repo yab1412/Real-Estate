@@ -2,6 +2,7 @@ import { Gutter } from "@/UI/Components/Gutter";
 import React from "react";
 import style from "./index.module.scss";
 import Image from "next/image";
+import { Icons } from "@/UI/Components/Icons";
 
 const Blogs = {
   1: {
@@ -40,7 +41,7 @@ export const Blog = () => {
           </div>
           <div className={style.explor}>
             <a href="#" className={style.button}>
-              EXPLORE MORE
+              EXPLORE MORE <Icons.Arrow color="#fff" />
             </a>
           </div>
         </div>
@@ -71,7 +72,7 @@ export const Blog = () => {
                 <p className={style.date}>{blog.date}</p>
                 {/* <p>{blog.discription}</p> */}
                 <a href="#" className={style.readmore}>
-                  READ MORE
+                  READ MORE <Icons.Arrow color="#fff" size={30}/>
                 </a>
               </div>
             </div>
