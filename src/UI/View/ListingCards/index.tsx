@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { Gutter } from "@/UI/Components/Gutter";
 import React, { useEffect, useRef, useState } from "react";
@@ -25,29 +25,28 @@ const Card = [
 ];
 
 export const Cards = () => {
+  const view = useRef<HTMLDivElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
-    const view = useRef<HTMLDivElement | null>(null);
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-      const observer = new IntersectionObserver((entries) => {
-        const entry = entries[0];
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      });
-
-      const currentView = view.current;
-      if (currentView) {
-        observer.observe(currentView);
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      if (entry.isIntersecting) {
+        setIsVisible(true);
       }
-
-      return () => {
-        if (currentView) {
-          observer.unobserve(currentView);
-        }
-      };
     });
+
+    const currentView = view.current;
+    if (currentView) {
+      observer.observe(currentView);
+    }
+
+    return () => {
+      if (currentView) {
+        observer.unobserve(currentView);
+      }
+    };
+  });
 
   return (
     <Gutter className={style.main}>
@@ -55,16 +54,25 @@ export const Cards = () => {
         <div className={style.content}>
           {Card.map((card, index) => (
             <div key={index} className={style.item}>
+              <div>
+                <div
+                  ref={view}
+                  className={[
+                    style.icon,
+                    isVisible ? style.contentView : null,
+                  ].join("")}
+                >
+                  <card.icon />
+                </div>
+              </div>
+
               <div
                 ref={view}
                 className={[
-                  style.icon,
-                  isVisible ? style.contentView : null,
+                  style.discription,
+                  isVisible ? style.discriptionView : null,
                 ].join("")}
               >
-                <card.icon />
-              </div>
-              <div ref={view} className={[style.discription, isVisible ? style.discriptionView : null].join("")}>
                 <h2>{card.title}</h2>
                 <p>{card.content}</p>
                 <Link className={style.link} href={""}>

@@ -1,15 +1,12 @@
 "use client";
 
-import React, {useEffect, useState} from "react";
-import Image from "next/image";
-import styles from "./index.module.scss";
-import Link from "next/link";
-import { Icons } from "../Icons";
 
-interface Menu {
-  title: string;
-  path: string;
-}
+import styles from "./index.module.scss";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Icons } from "../Icons";
+import { debounce } from "lodash";
 
 interface Logo {
   src: string;
@@ -18,76 +15,64 @@ interface Logo {
   height: number;
 }
 
+interface MenuItem {
+  title: string;
+  path: string;
+}
+
 interface HeaderProps {
-  menu: Menu[];
+  menu: MenuItem[];
   logo: Logo;
 }
 
 const Header = ({ menu, logo }: HeaderProps) => {
+  const [isSticky, setSticky] = useState(false);
 
-  const  [isSticky, setSticky] = useState (false)
+ useEffect(() => {
+   const handleScroll = debounce(() => {
+     setSticky(window.scrollY >= 550);
+   }, 100);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY >= 400) {
-        setSticky(true)
-      } else {
-        setSticky(false)
-      }
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-    }, []);
+   window.addEventListener("scroll", handleScroll);
+   return () => window.removeEventListener("scroll", handleScroll);
+ }, []);
 
   return (
-    <>
-      <div className={`${styles.container} ${isSticky ? styles.sticky : ""} `}>
-        <div className={styles.main}>
-          <div className={styles.logo}>
-            <Link href="/">
-              <Image
-                className={styles.images}
-                src={logo.src}
-                alt={logo.alt}
-                width={logo.width}
-                height={logo.height}
-              />
-            </Link>
-          </div>
-          <div className={styles.wrapper}>
-            <div className={styles.navigation}>
-              <input type="checkbox" className={styles.toggle} />
-              <div className={styles.humberger}> </div>
-              <ul className={styles.menu}>
-                <Image
-                  className={styles.image}
-                  src={logo.src}
-                  alt={logo.alt}
-                  width={logo.width}
-                  height={logo.height}
-                />
-                {Object.keys(menu).map((key) => {
-                  const index = Number(key);
-                  return (
-                    <li key={index} className={styles.menus}>
-                      <Link
-                        className={styles.menuitems}
-                        href={menu[index].path}
-                      >
-                        {menu[index].title}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-              <div className={styles.contact}>
-                <button className={styles.button}>ADD LISTING <Icons.Arrow size={30} color="#fff" /></button>
-              </div>
-            </div>
+    <div className={`${styles.container} ${isSticky ? styles.sticky : ""}`}>
+      <div className={styles.main}>
+        <div className={styles.logo}>
+          <Link href="/">
+            <Image
+              className={styles.images}
+              src={logo.src}
+              alt={logo.alt}
+              width={logo.width}
+              height={logo.height}
+            />
+          </Link>
+        </div>
+        <div className={styles.wrapper}>
+          <div className={styles.navigation}>
+            <input type="checkbox" className={styles.toggle} />
+            <div className={styles.humberger} />
+            <ul className={styles.menu}>
+              {menu.map((menuItem, index) => (
+                <li key={index} className={styles.menus}>
+                  <Link className={styles.menuitems} href={menuItem.path}>
+                    {menuItem.title}
+                  </Link>
+                </li>
+              ))}
+              <li className={styles.menus}>
+                <button className={styles.button}>
+                  ADD LISTING <Icons.Arrow size={30} color="#fff" />
+                </button>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

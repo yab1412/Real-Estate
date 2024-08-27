@@ -1,0 +1,26 @@
+@import '../../../Styles/minxins/respond.scss';
+
+.main {
+  //   font-family: var(--font-mono);
+}
+
+.section {
+  padding-bottom: 10rem;
+  animation: fade linear both;
+  animation-timeline: view(block);
+  animation-range: cover 5% cover 50%;
+
+  @include respond (phone) {
+    animation: none;
+  }
+
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

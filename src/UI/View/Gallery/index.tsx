@@ -55,21 +55,22 @@ export const Gallery = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+      }
+    });
 
     const currentView = view.current;
     if (currentView) {
       observer.observe(currentView);
     }
+    return () => {
+      if (currentView) {
+        observer.unobserve(currentView);
+      }
+    };
   });
 
   const data = {
@@ -124,8 +125,7 @@ export const Gallery = () => {
           </div>
         </div>
 
-     
-          {/* <div className={style.container}>
+        <div className={style.container}>
             {Object.entries(data).map(([key, item]) => (
               <div key={key} className={style.item}>
                 <Image
@@ -205,13 +205,14 @@ export const Gallery = () => {
                 <button> &#8649; </button>
               </div>
             </div>
-          </div> */}
+          </div>
 
         <div
           ref={view}
-          className={[style.count, isVisible ? style.counterView : null].join(
-            ""
-          )}
+          className={[
+            style.count,
+            isVisible ? style.counterView : null,
+          ].join("")}
         >
           <div className={style.counters}>
             <Counter title="Team Member" maxCount={200} />

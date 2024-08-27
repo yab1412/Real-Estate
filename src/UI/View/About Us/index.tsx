@@ -44,14 +44,7 @@ export const About = () => {
               <div className={style.know}>
                 <h2>KNOW ABOUT US</h2>
               </div>
-            </div>
-            <div
-              ref={view}
-              className={[
-                style.header,
-                isVisible ? style.contentView : null,
-              ].join("")}
-            >
+
               <div className={style.description}>
                 <h2>Making Your Real Estate Dreams a Reality</h2>
               </div>

@@ -1,5 +1,7 @@
+'use client'
+
 import { Gutter } from "@/UI/Components/Gutter";
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import style from "./index.module.scss";
 import Image from "next/image";
 import { Icons } from "@/UI/Components/Icons";
@@ -29,16 +31,39 @@ const Blogs = {
 };
 
 export const Blog = () => {
+
+  const view = useRef<HTMLDivElement |null> (null)
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0]
+      if (entry.isIntersecting) {
+        setIsVisible(true)
+      }
+    })
+
+    const currentView = view.current
+    if (currentView) {
+      observer.observe(currentView)
+    }
+  })
+
   return (
     <Gutter className={style.main}>
-      <div className={style.container}>
+      <div ref={view} className={[style.container, isVisible ? style.allView : null].join("")}>
         <div className={style.content}>
-          <div className={style.head}>
-            <div className={style.title}>
-              <h2>LATEST BLOG AND NEWS</h2>
-              <h1>Investing in estate made lot easy</h1>
+            <div
+              ref={view}
+              className={[style.head, isVisible ? style.titleView : null].join(
+                ""
+              )}
+            >
+              <div className={style.title}>
+                <h2>LATEST BLOG AND NEWS</h2>
+                <h1>Investing in estate made lot easy</h1>
+              </div>
             </div>
-          </div>
           <div className={style.explor}>
             <a href="#" className={style.button}>
               EXPLORE MORE <Icons.Arrow color="#fff" />
@@ -72,7 +97,7 @@ export const Blog = () => {
                 <p className={style.date}>{blog.date}</p>
                 {/* <p>{blog.discription}</p> */}
                 <a href="#" className={style.readmore}>
-                  READ MORE <Icons.Arrow color="#fff" size={30}/>
+                  READ MORE <Icons.Arrow color="#fff" size={30} />
                 </a>
               </div>
             </div>
