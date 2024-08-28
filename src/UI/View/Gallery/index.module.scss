@@ -295,8 +295,6 @@
   display: flex;
   justify-content: space-evenly;
   margin-top: 10rem;
-  // opacity: 0;
-  // animation: ups 1s 1s linear forwards;
 
   @include respond(phone) {
     display: grid;
@@ -305,11 +303,12 @@
 }
 
 .count {
-  // opacity: 0;
+    // opacity: 0;
+
 }
 
 .counterView {
-    opacity: 0;
+  opacity: 0;
   animation: ups 1s 1s linear forwards;
 
   // @include respond(phone) {
@@ -320,11 +319,13 @@
 @keyframes ups {
   0% {
     opacity: 0;
-    transform: translateY(100px);
+    transform: translateY(100%);
   }
-  50% {
+  100% {
     opacity: 0.5;
+    // transform: translateY(0);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);

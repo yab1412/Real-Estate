@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+"use client";
+
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./index.module.scss";
 
 interface Props {
@@ -6,17 +8,45 @@ interface Props {
   title: string;
 }
 
-const Counter: React.FC<Props> = ({ maxCount , title }) => {
+const Counter: React.FC<Props> = ({ maxCount, title }) => {
+  const view = useRef<HTMLDivElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
   const [count, setCount] = useState(0);
+  const [isCounting, setIsCounting] = useState(false); // Add a new state to track if counting is in progress
 
   useEffect(() => {
-    let intervalId: NodeJS.Timeout;
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      if (entry.isIntersecting) {
+        setIsVisible(entry.isIntersecting);
+        if (!isCounting) {
+          // Start counting when the component comes into view
+          setIsCounting(true);
+        }
+      }
+    });
 
-    if (count < maxCount) {
+    const currentView = view.current;
+    if (currentView) {
+      observer.observe(currentView);
+    }
+
+    return () => {
+      if (currentView) {
+        observer.unobserve(currentView);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isCounting) {
+      // Only start the interval if counting is in progress
+      let intervalId: NodeJS.Timeout;
+
       const getIncrement = () => {
         if (count <= 100) return 1;
         if (count <= 1000) return 10;
-        if (count >= 10000) return 5000;
+        if (count >= 10000) return 100000;
         if (count <= 100000) return 100000;
         if (count <= 1000000) return 1000000;
         return 1000000;
@@ -24,13 +54,13 @@ const Counter: React.FC<Props> = ({ maxCount , title }) => {
 
       intervalId = setInterval(() => {
         setCount((prevCount) => Math.min(prevCount + getIncrement(), maxCount));
-      }, 20); 
-    }
+      }, 30);
 
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, [count, maxCount]);
+      return () => {
+        clearInterval(intervalId);
+      };
+    }
+  }, [isCounting, count, maxCount]);
 
   const formatCount = () => {
     if (count < 1000) return `${count}+`;
@@ -39,9 +69,8 @@ const Counter: React.FC<Props> = ({ maxCount , title }) => {
     return `${count / 100000}M+`;
   };
 
-
   return (
-    <div className={styles.main}>
+    <div ref={view} className={styles.main}>
       <div className={styles.container}>
         <div className={styles.content}>
           <h1 className={styles.counter} data-count={maxCount}>
@@ -49,7 +78,7 @@ const Counter: React.FC<Props> = ({ maxCount , title }) => {
           </h1>
           <div className={styles.disc}>
             <div className={styles.line}></div>
-            <p> {title}</p>
+            <p>{title}</p>
           </div>
         </div>
       </div>
