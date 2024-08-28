@@ -312,9 +312,9 @@
     opacity: 0;
   animation: ups 1s 1s linear forwards;
 
-  @include respond(phone) {
-    animation: none;
-  }
+  // @include respond(phone) {
+  //   animation: none;
+  // }
 }
 
 @keyframes ups {

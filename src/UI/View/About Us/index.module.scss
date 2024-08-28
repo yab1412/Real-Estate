@@ -102,15 +102,15 @@
     opacity: 0;
   animation: lefts 1s 1s linear forwards;
 
-  @include respond(phone) {
-    animation: none;
-  }
+  // @include respond(phone) {
+  //   animation: none;
+  // }
 }
 
 @keyframes lefts {
   0% {
     opacity: 0;
-    transform: translateX(-500px);
+    transform: translateX(-100%);
   }
   50% {
     opacity: 0.5;
@@ -129,15 +129,15 @@
     opacity: 0;
   animation: rights 1s 1s linear forwards;
 
-  @include respond(phone) {
-    animation: none;
-  }
+  // @include respond(phone) {
+  //   animation: none;
+  // }
 }
 
 @keyframes rights {
   0% {
     opacity: 0;
-    transform: translateX(500px);
+    transform: translateX(100%);
   }
   50% {
     opacity: 0.5;

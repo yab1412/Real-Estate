@@ -103,9 +103,9 @@
 .HeadView1 {
   animation: rights 1s 1s linear forwards;
 
-  @include respond(phone) {
-    animation: none;
-  }
+  // @include respond(phone) {
+  //   animation: none;
+  // }
 }
 
 @keyframes rights {
@@ -125,31 +125,31 @@
 .HeadView2 {
   animation: rights 1.5s 1s linear forwards;
 
-  @include respond(phone) {
-    animation: none;
-  }
+  // @include respond(phone) {
+  //   animation: none;
+  // }
 }
 
 .HeadView3 {
   animation: rights 2s 1s linear forwards;
 
-  @include respond(phone) {
-    animation: none;
-  }
+  // @include respond(phone) {
+  //   animation: none;
+  // }
 }
 
 .HeadView4 {
   animation: rights 2.5s 1s linear forwards;
 
-  @include respond(phone) {
-    animation: none;
-  }
+  // @include respond(phone) {
+  //   animation: none;
+  // }
 }
 
 .HeadView5 {
   animation: rights 3s 1s linear forwards;
 
-  @include respond(phone) {
-    animation: none;
-  }
+  // @include respond(phone) {
+  //   animation: none;
+  // }
 }

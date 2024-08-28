@@ -104,6 +104,10 @@
 .contactView {
   opacity: 0;
   animation: rights 1s 1s linear forwards;
+
+  // @include respond (phone) {
+  // animation: none;
+  // }
 }
 
 @keyframes rights {
