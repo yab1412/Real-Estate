@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { Gutter } from "@/UI/Components/Gutter";
 import React, { useState, useEffect, useRef } from "react";
@@ -31,74 +31,92 @@ const Blogs = {
 };
 
 export const Blog = () => {
-
-  const view = useRef<HTMLDivElement |null> (null)
-  const [isVisible, setIsVisible] = useState(false)
+  const view = useRef<HTMLDivElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
-      const entry = entries[0]
+      const entry = entries[0];
       if (entry.isIntersecting) {
-        setIsVisible(true)
+        setIsVisible(true);
       }
-    })
+    });
 
-    const currentView = view.current
+    const currentView = view.current;
     if (currentView) {
-      observer.observe(currentView)
+      observer.observe(currentView);
     }
-  })
+  });
 
   return (
     <Gutter className={style.main}>
-      <div ref={view} className={[style.container, isVisible ? style.allView : null].join("")}>
+      <div
+        ref={view}
+        className={[style.container, isVisible ? style.allView : null].join("")}
+      >
         <div className={style.content}>
-            <div
-              ref={view}
-              className={[style.head, isVisible ? style.titleView : null].join(
-                ""
-              )}
-            >
-              <div className={style.title}>
-                <h2>LATEST BLOG AND NEWS</h2>
-                <h1>Investing in estate made lot easy</h1>
-              </div>
+          <div
+            ref={view}
+            className={[style.head, isVisible ? style.titleView : null].join(
+              ""
+            )}
+          >
+            <div className={style.title}>
+              <h2>LATEST BLOG AND NEWS</h2>
+              <h1>Investing in estate made lot easy</h1>
             </div>
-          <div className={style.explor}>
-            <a href="#" className={style.button}>
-              EXPLORE MORE <Icons.Arrow color="#fff" />
-            </a>
+          </div>
+          <div
+            ref={view}
+            className={[
+              style.explors,
+              isVisible ? style.buttonView : null,
+            ].join("")}
+          >
+            <div className={style.explor}>
+              <a href="#" className={style.button}>
+                EXPLORE MORE <Icons.Arrow color="#fff" />
+              </a>
+            </div>
           </div>
         </div>
 
         <div className={style.card}>
           {Object.values(Blogs).map((blog, index) => (
-            <div key={index} className={style.cardItem}>
-              <div className={style.card_img}>
-                <Image
-                  width={400}
-                  height={300}
-                  className={style.image}
-                  src={blog.src}
-                  alt="image"
-                />
-              </div>
-              <div className={style.icons}>
-                <div className={style.icon1}>
-                  <h2>By admin</h2>
+            <div
+              key={index}
+              ref={view}
+              className={[style.cards, isVisible ? style.cardView : null].join(
+                ""
+              )}
+            >
+              <div className={style.cardItem}>
+                <div className={style.card_img}>
+                  <Image
+                    width={400}
+                    height={300}
+                    className={style.image}
+                    src={blog.src}
+                    alt="image"
+                  />
                 </div>
-                <div className={style.icon2}>
-                  <h2>Comments (07)</h2>
+                <div className={style.icons}>
+                  <div className={style.icon1}>
+                    <h2>By admin</h2>
+                  </div>
+                  <div className={style.icon2}>
+                    <h2>Comments (07)</h2>
+                  </div>
                 </div>
-              </div>
 
-              <div className={style.card_info}>
-                <h2>{blog.title}</h2>
-                <p className={style.date}>{blog.date}</p>
-                {/* <p>{blog.discription}</p> */}
-                <a href="#" className={style.readmore}>
-                  READ MORE <Icons.Arrow color="#fff" size={30} />
-                </a>
+                <div className={style.card_info}>
+                  <h2>{blog.title}</h2>
+                  <p className={style.date}>{blog.date}</p>
+                  {/* <p>{blog.discription}</p> */}
+                  <a href="#" className={style.readmore}>
+                    READ MORE <Icons.Arrow color="#fff" size={30} />
+                  </a>
+                </div>
               </div>
             </div>
           ))}

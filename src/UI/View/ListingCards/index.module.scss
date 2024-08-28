@@ -16,12 +16,12 @@
   @include respond(phone) {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    flex-wrap: wrap;
+    gap: 1rem;
   }
 }
 
 .item {
-  height: 200px;
+  // height: 100%;
   background-color: #211e1e;
   border-radius: 10px;
   margin: 1rem;
@@ -54,6 +54,7 @@
 }
 
 .contentView {
+    opacity: 0;
   animation: ups 1s 1s linear forwards;
 
   @include respond(phone) {
@@ -79,6 +80,7 @@
 }
 
 .discriptionView {
+  opacity: 0;
   animation: lefts 1s 1s linear forwards;
 
   @include respond(phone) {
@@ -86,7 +88,7 @@
   }
 }
 @keyframes lefts {
-  0% {
+ 0% {
     opacity: 0;
     transform: translateX(-500px);
   }

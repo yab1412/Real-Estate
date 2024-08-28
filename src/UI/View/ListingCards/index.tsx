@@ -54,7 +54,7 @@ export const Cards = () => {
         <div className={style.content}>
           {Card.map((card, index) => (
             <div key={index} className={style.item}>
-              <div>
+              {/* <div> */}
                 <div
                   ref={view}
                   className={[
@@ -64,7 +64,7 @@ export const Cards = () => {
                 >
                   <card.icon />
                 </div>
-              </div>
+              {/* </div> */}
 
               <div
                 ref={view}

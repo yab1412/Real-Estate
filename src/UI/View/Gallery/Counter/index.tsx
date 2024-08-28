@@ -24,7 +24,7 @@ const Counter: React.FC<Props> = ({ maxCount , title }) => {
 
       intervalId = setInterval(() => {
         setCount((prevCount) => Math.min(prevCount + getIncrement(), maxCount));
-      }, 10); 
+      }, 20); 
     }
 
     return () => {

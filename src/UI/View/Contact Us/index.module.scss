@@ -82,9 +82,9 @@
   padding: 2rem;
   background-color: #211e1e;
   position: absolute;
-  width: 59%;
+  width: 100%;
   top: 0%;
-  left: 40%;
+  left: 0%;
 
   @include respond (phone) {
     position: static;
@@ -94,6 +94,29 @@
     // align-items: center;
     // justify-content: center;
     // gap: 2rem;
+  }
+}
+
+.contacts {
+
+}
+
+.contactView {
+  opacity: 0;
+  animation: rights 1s 1s linear forwards;
+}
+
+@keyframes rights {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 

@@ -78,9 +78,27 @@
 }
 
 .help {
+  opacity: 0;
+  animation: rights 1s 1s linear forwards;
+
   background-color: hwb(36 0% 0% / 0.7);
   padding: 5%;
   border-radius: 15px;
+}
+
+
+@keyframes rights {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .call {
@@ -90,5 +108,3 @@
   gap: 2rem;
   align-items: center;
 }
-
-

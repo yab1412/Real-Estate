@@ -99,6 +99,7 @@
 }
 
 .contentView {
+    opacity: 0;
   animation: lefts 1s 1s linear forwards;
 
   @include respond(phone) {
@@ -125,6 +126,7 @@
 }
 
 .ImageView {
+    opacity: 0;
   animation: rights 1s 1s linear forwards;
 
   @include respond(phone) {

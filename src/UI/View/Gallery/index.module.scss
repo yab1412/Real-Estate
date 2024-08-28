@@ -3,6 +3,7 @@
 .gallery {
   height: 100%;
   width: 100%;
+
   @include respond(tab-land) {
     max-width: 136.6rem;
     margin: 0 auto;
@@ -308,6 +309,7 @@
 }
 
 .counterView {
+    opacity: 0;
   animation: ups 1s 1s linear forwards;
 
   @include respond(phone) {
