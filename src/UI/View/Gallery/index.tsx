@@ -126,93 +126,134 @@ export const Gallery = () => {
         </div>
 
         <div className={style.container}>
-            {Object.entries(data).map(([key, item]) => (
-              <div key={key} className={style.item}>
-                <Image
-                  width={400}
-                  height={300}
-                  className={selected == 0 ? style.image : style.hide_image}
-                  src={item.src}
-                  alt="image"
-                />
-                <div
-                  className={style.iconHover}
-                  onClick={() => handleClick(Number(key))}
+          {Object.entries(data).map(([key, item]) => (
+            <div key={key} className={style.item}>
+              <Image
+                width={400}
+                height={300}
+                className={selected == 0 ? style.image : style.hide_image}
+                src={item.src}
+                alt="image"
+              />
+              <div
+                className={style.iconHover}
+                onClick={() => handleClick(Number(key))}
+              >
+                <svg
+                  version="1.1"
+                  id="Layer_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24px"
+                  height="24px"
+                  fill="#fff"
+                  viewBox="0 0 64 64"
+                  enable-background="new 0 0 64 64"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="24px"
-                    viewBox="0 -960 960 960"
-                    width="24px"
-                    fill="#fff"
-                    cursor="pointer"
-                  >
-                    <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-                  </svg>
-                </div>
-              </div>
-            ))}
-            <div className={selected != 0 ? style.content : style.hide}>
-              <svg
-                onClick={() => handleClick(0)}
-                xmlns="http://www.w3.org/2000/svg"
-                height="24px"
-                viewBox="0 -960 960 960"
-                width="24px"
-                fill="#f3b52e"
-                cursor="pointer"
-              >
-                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-              </svg>
-              <div className={style.modal}>
-                <div className={style.frame}>
-                  <div className={style.slider}>
-                    {Object.entries(data).map(([key, index]) => (
-                      <Card
-                        key={key}
-                        {...index}
-                        // src={Item.src}
-                        id={key}
-                        active={activeIndex}
-                        length={Object.keys(data).length}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div
-                className={style.buttons}
-                onClick={() => {
-                  // clear();
-                  setActiveIndex(
-                    activeIndex < Object.keys(data).length ? activeIndex - 1 : 1
-                  );
-                }}
-              >
-                <button> &#8647; </button>
-              </div>
-
-              <div
-                className={style.buttonss}
-                onClick={() => {
-                  // clear();
-                  setActiveIndex(
-                    activeIndex < Object.keys(data).length ? activeIndex + 1 : 1
-                  );
-                }}
-              >
-                <button> &#8649; </button>
+                  <polyline
+                    fill="none"
+                    stroke="#fff"
+                    stroke-width="2"
+                    stroke-linejoin="bevel"
+                    stroke-miterlimit="10"
+                    points="63,12 63,1 52,1 
+	"
+                  />
+                  <polyline
+                    fill="none"
+                    stroke="#fff"
+                    stroke-width="10"
+                    stroke-linejoin="bevel"
+                    stroke-miterlimit="10"
+                    points="1,52 1,63 12,63 
+	"
+                  />
+                  <line
+                    fill="none"
+                    stroke="#fff"
+                    stroke-width="10"
+                    stroke-linejoin="bevel"
+                    stroke-miterlimit="10"
+                    x1="1"
+                    y1="63"
+                    x2="26"
+                    y2="38"
+                  />
+                  <line
+                    fill="none"
+                    stroke="#fff"
+                    stroke-width="10"
+                    stroke-linejoin="bevel"
+                    stroke-miterlimit="10"
+                    x1="38"
+                    y1="26"
+                    x2="63"
+                    y2="1"
+                  />
+                </svg>
               </div>
             </div>
+          ))}
+          <div className={selected != 0 ? style.content : style.hide}>
+            <svg
+              onClick={() => handleClick(0)}
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#f3b52e"
+              cursor="pointer"
+            >
+              <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+            </svg>
+
+            <div className={style.modal}>
+              <div className={style.frame}>
+                <div className={style.slider}>
+                  {Object.entries(data).map(([key, index]) => (
+                    <Card
+                      key={key}
+                      {...index}
+                      // src={Item.src}
+                      id={key}
+                      active={activeIndex}
+                      length={Object.keys(data).length}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div
+              className={style.buttons}
+              onClick={() => {
+                // clear();
+                setActiveIndex(
+                  activeIndex < Object.keys(data).length ? activeIndex - 1 : 1
+                );
+              }}
+            >
+              <button> &#8647; </button>
+            </div>
+
+            <div
+              className={style.buttonss}
+              onClick={() => {
+                // clear();
+                setActiveIndex(
+                  activeIndex < Object.keys(data).length ? activeIndex + 1 : 1
+                );
+              }}
+            >
+              <button> &#8649; </button>
+            </div>
           </div>
+        </div>
 
         <div
           ref={view}
-          className={[
-            style.count,
-            isVisible ? style.counterView : null,
-          ].join("")}
+          className={[style.count, isVisible ? style.counterView : null].join(
+            ""
+          )}
         >
           <div className={style.counters}>
             <Counter title="Team Member" maxCount={200} />
