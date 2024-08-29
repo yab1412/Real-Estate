@@ -44,8 +44,6 @@ export const ProgressBar = () => {
             cy="20"
             r="15"
             fill="none"
-            // strokeWidth="10"
-            // strokeDasharray="100"
             strokeDashoffset={100 - progress}
           />
           <path
