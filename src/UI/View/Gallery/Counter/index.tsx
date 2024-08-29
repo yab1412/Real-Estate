@@ -12,7 +12,7 @@ const Counter: React.FC<Props> = ({ maxCount, title }) => {
   const view = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [count, setCount] = useState(0);
-  const [isCounting, setIsCounting] = useState(false); // Add a new state to track if counting is in progress
+  const [isCounting, setIsCounting] = useState(false); 
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -20,7 +20,6 @@ const Counter: React.FC<Props> = ({ maxCount, title }) => {
       if (entry.isIntersecting) {
         setIsVisible(entry.isIntersecting);
         if (!isCounting) {
-          // Start counting when the component comes into view
           setIsCounting(true);
         }
       }
@@ -36,11 +35,10 @@ const Counter: React.FC<Props> = ({ maxCount, title }) => {
         observer.unobserve(currentView);
       }
     };
-  }, []);
+  }, [isCounting]);
 
   useEffect(() => {
     if (isCounting) {
-      // Only start the interval if counting is in progress
       let intervalId: NodeJS.Timeout;
 
       const getIncrement = () => {

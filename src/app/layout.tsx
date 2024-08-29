@@ -3,8 +3,9 @@ import { Jost } from "next/font/google";
 import "../Styles/global.scss";
 import Header from "@/UI/Components/Header";
 import { Footer } from "@/UI/Components/Footer";
-import style from './index.module.scss'
+import style from "./index.module.scss";
 import Link from "next/link";
+import { ProgressBar } from "../UI/Components/progress";
 
 const inter = Jost({
   weight: ["200", "300", "400", "500", "600", "700", "800"],
@@ -25,8 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* <Link className="progress" href= "/"/> */}
-
+        <ProgressBar />
         <header>
           <Header
             menu={[
