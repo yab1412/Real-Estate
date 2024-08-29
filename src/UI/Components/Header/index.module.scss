@@ -231,7 +231,7 @@
 .wrapper {
   display: flex;
   gap: 5rem;
-  padding: 0 1rem;
+  padding: 0 2rem;
 
   @include respond(phone) {
     order: 1;
