@@ -31,7 +31,7 @@ export const About = () => {
 
   return (
     <Gutter className={style.main}>
-      <div className={style.container}>
+      <div id="about" className={style.container}>
         <div className={style.content}>
           <div className={style.article}>
             <div

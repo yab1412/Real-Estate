@@ -93,7 +93,7 @@ const tableData: TableData[] = [
 export const AvailableApartments = () => {
   return (
     <Gutter className={styles.main}>
-      <div className={styles.container}>
+      <div id="available_apartments" className={styles.container}>
         <div className={styles.content}>
           <div className={styles.head}>
             <div className={styles.title}>
@@ -108,7 +108,9 @@ export const AvailableApartments = () => {
               </h3>
             </div>
           </div>
-
+          <div className={styles.scroll}>
+            <h2>Scroll for more &rarr;</h2>
+          </div>
           <div className={styles.tables}>
             <table className={styles.table}>
               <thead>
@@ -132,7 +134,10 @@ export const AvailableApartments = () => {
                       <td>{data.totalArea}</td>
                       <td>{data.price}</td>
                       <td className={styles.link}>
-                        <a href={data.link.href}>{data.link.text}<Icons.Arrow size={30}/></a>
+                        <a href={data.link.href}>
+                          {data.link.text}
+                          <Icons.Arrow size={30} />
+                        </a>
                       </td>
                     </tr>
                   );

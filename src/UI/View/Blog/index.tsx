@@ -50,7 +50,7 @@ export const Blog = () => {
 
   return (
     <Gutter className={style.main}>
-      <div
+      <div id="blog"
         ref={view}
         className={[style.container, isVisible ? style.allView : null].join("")}
       >
@@ -112,7 +112,6 @@ export const Blog = () => {
                 <div className={style.card_info}>
                   <h2>{blog.title}</h2>
                   <p className={style.date}>{blog.date}</p>
-                  {/* <p>{blog.discription}</p> */}
                   <a href="#" className={style.readmore}>
                     READ MORE <Icons.Arrow color="#fff" size={30} />
                   </a>

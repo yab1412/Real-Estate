@@ -14,7 +14,7 @@
 }
 
 .allView {
-    opacity: 0;
+  opacity: 0;
   animation: opac 1s 1s linear forwards ease-in-out;
 }
 
@@ -68,7 +68,7 @@
 }
 
 .titleView {
-    opacity: 0;
+  opacity: 0;
   animation: lefts 1s 1s linear forwards;
 }
 
@@ -87,7 +87,6 @@
 }
 
 .explor {
-
   & .button {
     display: flex;
     align-items: center;
@@ -135,15 +134,13 @@
   }
 
   @include respond(tab-port) {
-    justify-content: start;
     flex-wrap: wrap;
-    gap: 10rem;
   }
 }
 
 .cardView {
   opacity: 0;
-  animation: ups 2s 1s linear forwards;  
+  animation: ups 2s 1s linear forwards;
 }
 
 @keyframes ups {
@@ -169,6 +166,10 @@
   background-color: #211e1e;
   color: #fff;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+
+  @include respond (tab-port) {
+    flex-direction: row;
+  }
 }
 
 .card_img {
@@ -198,7 +199,7 @@
     margin-bottom: 0.5rem;
   }
 
-  & a {
+  & .readmore {
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -209,6 +210,15 @@
     padding: 2rem;
     border-radius: 1rem;
     border: 1px solid #fff;
+  }
+
+  .readmore:hover {
+    color: hwb(36 0% 0% / 0.7);
+    border: 1px solid hwb(36 0% 0% / 0.7);
+  }
+
+  @include respond (tab-port) {
+    justify-content: center;
   }
 }
 
@@ -228,6 +238,10 @@
   align-items: center;
   padding: 2rem;
   margin: 2rem 0;
+
+  @include respond (tab-port) {
+    display: block;
+  }
 }
 
 .icon1 {

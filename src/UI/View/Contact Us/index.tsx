@@ -24,7 +24,7 @@ export const Contact_Us = () => {
 
   return (
     <Gutter className={style.main}>
-      <div className={style.container}>
+      <div id="contact_us" className={style.container}>
         <div className={style.content}>
           <div className={style.paragraph}>
             <div className={style.head}>

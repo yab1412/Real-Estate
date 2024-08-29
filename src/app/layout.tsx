@@ -26,22 +26,33 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         {/* <Link className="progress" href= "/"/> */}
-       
 
         <header>
           <Header
             menu={[
               {
-                title: "home",
-                path: "/",
-              },
-              {
                 title: "About",
-                path: "/about",
+                path: "#about",
               },
               {
-                title: "Section",
-                path: "/section",
+                title: "Floor Plans",
+                path: "#floor_plan",
+              },
+              {
+                title: "Gallery",
+                path: "#gallery",
+              },
+              {
+                title: "Available Apartments",
+                path: "#available_apartments",
+              },
+              {
+                title: "Contact Us",
+                path: "#contact_us",
+              },
+              {
+                title: "Blogs",
+                path: "#blog",
               },
             ]}
             logo={{

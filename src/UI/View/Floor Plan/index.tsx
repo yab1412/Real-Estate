@@ -267,7 +267,7 @@ export const FloorPlan = () => {
 
   return (
     <Gutter className={style.main}>
-      <div className={style.container}>
+      <div id="floor_plan" className={style.container}>
         <div className={style.title}>
           <h2>FLOOR PLANS</h2>
           <h1>Unlocking the door to your new Home</h1>
