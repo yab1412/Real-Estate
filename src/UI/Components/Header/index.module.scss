@@ -32,6 +32,12 @@
     padding: 0 1rem;
   }
 
+    @include respond(tab-port) {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+  }
+
   @include respond(bigScreen) {
     padding: 0 20px;
   }
@@ -163,7 +169,7 @@
 .menu {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 3rem;
   font-size: 1.4rem;
   z-index: 1;
 
