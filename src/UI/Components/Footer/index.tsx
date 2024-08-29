@@ -31,9 +31,9 @@ const services = [
 
 const images = [
   { src: "/assets/interor.png", alt: "image1" },
-  { src: "/assets/interor.png", alt: "image2" },
+  { src: "/assets/3d-model-house-building.jpg", alt: "image2" },
   { src: "/assets/interor.png", alt: "image3" },
-  { src: "/assets/interor.png", alt: "image4" },
+  { src: "/assets/HeroHome.png", alt: "image4" },
   { src: "/assets/interor.png", alt: "image5" },
   { src: "/assets/interor.png", alt: "image6" },
 ];
