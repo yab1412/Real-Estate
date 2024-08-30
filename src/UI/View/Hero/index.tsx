@@ -39,7 +39,7 @@ export const Hero = () => {
                 <div className={style.cta}>
                   <p>Get Intouch</p>
                   <Link href="tel:+251123-4567" className={style.call}>
-                    (251)123-4567
+                    (+251)123-4567
                   </Link>
                 </div>
               </div>
