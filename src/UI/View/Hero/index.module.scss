@@ -61,12 +61,15 @@
 }
 
 .help {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
   opacity: 0;
   animation: rights 1s 1s linear forwards;
 
-  background-color: hwb(36 0% 0% / 0.7);
-  padding: 5%;
-  border-radius: 15px;
+  // background-color: hwb(36 0% 0% / 0.7);
+  // padding: 5%;
+  // border-radius: 15px;
 }
 
 @keyframes rights {
@@ -83,10 +86,42 @@
   }
 }
 
+.shake {
+  animation: shake 1s 2s ;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-10deg);
+  }
+  40% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(-10deg);
+  }
+  80% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.cta {
+      display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
 .call {
-  display: flex;
+    background-color: hwb(36 0% 0% / 0.7);
+  padding: 5%;
+  border-radius: 15px;
   font-size: 1.6rem;
   color: #fff;
-  gap: 2rem;
-  align-items: center;
+  
 }

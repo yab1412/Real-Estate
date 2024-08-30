@@ -32,11 +32,16 @@ export const Hero = () => {
                 Reality Real Estate here Unlock the Power of Real Estate
               </p>
               <div className={style.help}>
-                <p>Need help?</p>
-                <Link href="tel:+251123-4567" className={style.call}>
-                  <Icons.Call />
-                  (251)123-4567
-                </Link>
+                <div className={style.shake}>
+
+                <Icons.Call size={70}/>
+                </div>
+                <div className={style.cta}>
+                  <p>Get Intouch</p>
+                  <Link href="tel:+251123-4567" className={style.call}>
+                    (251)123-4567
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
