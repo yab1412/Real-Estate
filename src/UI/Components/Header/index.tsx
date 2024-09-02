@@ -63,12 +63,12 @@ const Header = ({ menu, logo }: HeaderProps) => {
                   </Link>
                 </li>
               ))}
-              <li className={styles.menus}>
-                <button className={styles.button}>
-                  ADD LISTING <Icons.Arrow size={30} color="#fff" />
-                </button>
-              </li>
             </ul>
+            <div className={styles.cta}>
+              <button className={styles.button}>
+                ADD LISTING <Icons.Arrow size={30} color="#fff" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
