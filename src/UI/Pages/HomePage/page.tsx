@@ -8,6 +8,7 @@ import { Gallery } from "@/UI/View/Gallery";
 import { AvailableApartments } from "@/UI/View/Available Apartments";
 import { Contact_Us } from "@/UI/View/Contact Us";
 import { Blog } from "@/UI/View/Blog";
+import { ParallaxSection } from "@/UI/View/Paralex";
 
 export const HomePage = () => {
   return (
@@ -29,11 +30,15 @@ export const HomePage = () => {
         <AvailableApartments />
       </div>
       <div className={styles.section}>
+        <ParallaxSection />
+      </div>
+      <div className={styles.section}>
       <Contact_Us />
       </div>
       <div className={styles.section}>
         <Blog />
       </div>
+
     </div>
   );
 };
